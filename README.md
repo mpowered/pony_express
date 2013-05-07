@@ -1,6 +1,6 @@
 # PonyExpress
 
-PonyExpress provides an HTTP based messaging bus.
+PonyExpress provides a lightweight, HTTP based messaging bus.
 
 ## Installation
 
@@ -51,10 +51,10 @@ PonyExpress.to(:toolkit, :sms).send_pony_async(:scorecard_changed, :vat_number =
 ```
 
 ### Handling Messages
-PonyExpress expects that your application has a handler named after the message you want to be able to receive.
-A `scorecard_changed` message will be routed to the `ScorecardChangedHandler` that you define in `apps/handlers`.
+PonyExpress expects that your application has a handler named after the message you want to receive.
+For example, a `scorecard_changed` message will be routed to a `ScorecardChangedHandler` defined in `apps/handlers`.
 
-Handlers are plain old Ruby classes that define a `handle` method. Heres an example:
+Handlers are plain old Ruby classes that define a `handle` method like this:
 
 ``` ruby
 class ScorecardChangedHandler
