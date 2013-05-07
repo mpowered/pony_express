@@ -66,3 +66,5 @@ class ScorecardChangedHandler
   end
 end
 ```
+
+You can raise a RuntimeError for failed handling by having your handler return `false`. If you don't want any exceptions to be raised then be sure to return `true` always :)
