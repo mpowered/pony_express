@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = PonyExpress::VERSION
   s.authors     = ["Gary Greyling"]
   s.email       = ["greyling.gary@gmail.com"]
-  s.homepage    = "github.com/mpowered/pony_express"
+  s.homepage    = "http://github.com/mpowered/pony_express"
   s.summary     = "Lightweight HTTP message bus"
   s.description = "Message bus add-on for Rails applications"
 
