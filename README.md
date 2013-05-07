@@ -6,14 +6,16 @@ PonyExpress provides an HTTP based messaging bus.
 
 Add it to your `Gemfile`:
 
-```ruby
-gem 'pony_express', :git => 'git@github.com:mpowered/pony_express.git'
-```
+    ```ruby
+    gem 'pony_express', :git => 'git@github.com:mpowered/pony_express.git'
+
+    ```
 
 Then configure the mount point in your `routes.rb` file:
 
 ```ruby
 mount PonyExpress::Engine, :at => "ponyexpress"
+
 ```
 
 This will namespace all PonyExpress routes on `/ponyexpress/`
