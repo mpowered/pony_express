@@ -50,8 +50,8 @@ class PonyExpress::Message
       if send_async?
         PonyExpressSenderWorker.perform_async(recipients, message, params)
       else
-        PonyExpress::Recipients.new.addresses_for(recipients) do |address|
-          HTTParty.post("#{address}/messages/#{message}", query: {params: params})
+        PonyExpress::Recipients.new.details_for(recipients) do |mount_point, psk|
+          HTTParty.post("#{mount_point}/messages/#{message}", query: {params: params}, basic_auth: { username: 'pony_express', :password => psk})
         end
       end
     end

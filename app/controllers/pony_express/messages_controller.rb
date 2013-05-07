@@ -1,5 +1,7 @@
 module PonyExpress
   class MessagesController < ApplicationController
+    http_basic_authenticate_with :name => "pony_express", :password => PonyExpress::Config.secret_key
+
     def create
       if current_handler.new.handle(message_params)
         render :text => 'Handled successfully', :status => 200
