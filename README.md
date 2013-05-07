@@ -50,8 +50,8 @@ or you can send the message asynchronously like this:
 PonyExpress.to(:toolkit, :sms).send_pony_async(:scorecard_changed, :vat_number => 442322342)
 ```
 
-Asynchronous messages are handled via Sidekiq on a queue named `pony_express_[env_name]`. Be sure to have your
-application boot workers for this queue.
+Asynchronous messages are handled via Sidekiq on a queue named `[app_prefix]_pony_express_[env_name]`. Be sure to have your
+application boot a worker for this queue.
 
 ### Handling Messages
 PonyExpress expects that your application has a handler named after the message you want to receive.

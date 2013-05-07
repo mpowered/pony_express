@@ -1,7 +1,7 @@
 class PonyExpressSenderWorker
   include Sidekiq::Worker
 
-  sidekiq_options queue: "pony_express_#{Rails.env}",
+  sidekiq_options queue: "#{PonyExpress::Config.queue_prefix}_pony_express_#{Rails.env}",
                   unique: true, 
                   retry: 3
 

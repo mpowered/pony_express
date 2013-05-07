@@ -6,10 +6,18 @@ class PonyExpress::Config
   end
 
   def self.secret_key
-    self.new.config['my_psk']
+    config['my_psk']
   end
 
   def self.recipients
-    self.new.config['recipients']
+    config['recipients']
+  end
+
+  def self.queue_prefix
+    config['queue_prefix']
+  end
+
+  def self.config
+    self.new.config
   end
 end
