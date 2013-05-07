@@ -1,3 +1,4 @@
+require "httparty"
 require "pony_express/engine"
 
 module PonyExpress
