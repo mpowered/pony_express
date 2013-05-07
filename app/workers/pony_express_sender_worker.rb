@@ -6,6 +6,6 @@ class PonyExpressSenderWorker
                   retry: 3
 
   def perform(recipients, message, params)
-    PonyExpress.to(*recipients).send(message, *params)
+    PonyExpress.to(*recipients).send_pony(message, params)
   end
 end

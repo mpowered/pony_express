@@ -48,10 +48,11 @@ class PonyExpress::Message
 
     def send!
       if send_async?
-        puts "sending async"
-        #PonyExpressSenderWorker.perform_async(recipients, message, params)
+        PonyExpressSenderWorker.perform_async(recipients, message, params)
       else
-        puts "sending sync"
+        PonyExpress::Recipients.new.addresses_for(recipients) do |address|
+          HTTParty.post("#{address}/messages/#{message}", query: {params: params})
+        end
       end
     end
 

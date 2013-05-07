@@ -1,18 +1,24 @@
 class PonyExpress::Recipients
-  attr_reader :recipients
+  attr_reader :recipients_lookup
 
   def initialize
-    @recipients =  {
-      :toolkit => 'toolkit.mpowered.io',
-      :sms => 'toolkit.mpowered.io'
+    @recipients_lookup =  {
+      :toolkit => 'http://sms.dev/pony',
+      :sms => 'http://sms.dev/pony'
     }
   end
 
   def list
-    recipients.keys
+    recipients_lookup.keys
   end
 
   def valid?(recipients)
-    (recipients - list).empty?
+    (recipients.map(&:to_sym) - list).empty?
+  end
+
+  def addresses_for(recipients)
+    recipients.each do |recipient|
+      yield recipients_lookup[recipient.to_sym]
+    end
   end
 end
