@@ -33,6 +33,8 @@ recipients:
     psk: 9kUFFDk7mGM
 
 my_psk: 3pQ8qkBMDun
+
+queue_prefix: boogle
 ```
 
 `my_psk` refers to the psk for the application being configured. It will be needed in order to receive messages.
