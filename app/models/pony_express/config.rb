@@ -14,7 +14,7 @@ class PonyExpress::Config
   end
 
   def self.queue_prefix
-    config['queue_prefix']
+    config['queue_prefix'] || Rails.application.class.parent_name.underscore
   end
 
   def self.config
