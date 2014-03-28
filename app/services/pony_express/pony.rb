@@ -15,7 +15,7 @@ class PonyExpress::Pony
     PonyExpress::Recipients.new.details_for(recipients) do |mount_point, psk|
       HTTParty.post(
         "#{mount_point}/messages/#{letter.message}",
-        query: {params: letter.params},
+        body: {params: letter.params},
         basic_auth: { username: 'pony_express', :password => psk}
       )
     end
