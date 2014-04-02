@@ -1,5 +1,7 @@
 module PonyExpress
-  class MessagesController < ApplicationController
+  class MessagesController < PonyExpressController
+    skip_before_filter :verify_authenticity_token
+
     http_basic_authenticate_with :name => "pony_express", :password => PonyExpress::Config.secret_key
 
     def create
