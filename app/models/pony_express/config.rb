@@ -2,7 +2,11 @@ class PonyExpress::Config
   attr_reader :config
 
   def initialize
-    @config = YAML::load_file(File.join(Rails.root, "config/pony_express.yml"))
+    @config = YAML::load(ERB.new(File.read(file)).result)
+  end
+
+  def file
+    File.join(Rails.root, "config/pony_express.yml")
   end
 
   def self.secret_key
