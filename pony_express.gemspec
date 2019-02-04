@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 3.2.22.5"
   s.add_dependency "httparty"
+  s.add_dependency "sidekiq", '~> 4'
+  s.add_dependency "redis-namespace"
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
