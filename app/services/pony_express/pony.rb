@@ -16,7 +16,8 @@ class PonyExpress::Pony
       HTTParty.post(
         "#{mount_point}/messages/#{letter.message}",
         body: {params: letter.params},
-        basic_auth: { username: 'pony_express', :password => psk}
+        basic_auth: { username: 'pony_express', :password => psk},
+        verify: false
       )
     end
   end
